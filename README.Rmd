@@ -1,0 +1,67 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# trabalho
+
+The goal of trabalho is to extract data from Brazilian Ministry of Labor and Social Security. At this moment you can access the Annual National Social Recording (Relação Anual de Trabalhadores - rais); Colective agreements between workers and companies unions, and work accidents.
+
+## Installation
+
+You can install trabalho from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("jjesusfilho/trabalho")
+```
+
+## Rais data
+
+In order to extract **rais** data,  you use *rais function*. This functions depends on a external sofware, [7-zip](http://www.7-zip.org/).
+
+You can download the *rais* data from several states and also include more than one CNAE or CBO. As for the year, the function only allows one year at a time. This functions will download the file in 7-zip format, then decompress it to .txt and finally read the data into R in chunks of 1000 lines each time. After that, it will remove the files from the directory. You need at least 9Gb of free space in your HD if you want to extract *rais* from São Paulo.
+
+As for the CNAE and CBO, you just need to inform the first numbers. First example, if you want to extract ocupations from high ranks of the tree branches, like judges, mayors and senators, you put CBO="111". The same with the CNAE.
+
+## Example.
+
+
+```{r example}
+## 
+df<-rais(uf=c(),CNAE="84","111")
+```
+
+The description of each variable can be accessed through the following data:
+
+```{r example}
+## 
+data(dic)
+```
+
+So the CBO number corresponds to variable X8. To find the occupation's descriptions, you have to access the CBO data:
+
+
+```{r example}
+## 
+data(cbo)
+```
+
+After that, you can replace the numbers with their respective descriptions. There is a function from the miscBR package that does the work for you:
+
+
+```{r example}
+## 
+df$X8<-miscBR::subs(df$X8,cbo$cbo,cbo$desc)
+```
+
+
