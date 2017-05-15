@@ -1,0 +1,27 @@
+Package: trabalho
+Type: Package
+Date: 2017-05-12
+Title: Extraction and manipulation of Brazilian's Workers data
+Version: 0.1.0
+Author: José de Jesus Filho
+Maintainer: The package maintainer <jjesusfilho@gmail.com>
+Description: Functions to extract and manipulate Brazilian workers data
+License: License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends:
+  R (>= 2.10),
+  httr,
+  stringr,
+  curl,
+  readr,
+  jsonlite,
+  xml2
+Imports:
+  httr,
+  stringr,
+  curl,
+  readr,
+  jsonlite,
+  xml2
+RoxygenNote: 6.0.1
