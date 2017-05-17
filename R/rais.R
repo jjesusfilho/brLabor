@@ -10,9 +10,9 @@
 #' @import curl
 #' @import stringr
 #' @import readr
-#' @return A data.frame with 
+#' @return A data.frame with rais data.
 #' @examples
-#' rais(uf=c("AC","SC"),CNAE="22",CBO="21",year=2014)
+#' df<-rais(uf=c("AC","SC"),CNAE="22",CBO="21",year=2014)
 
 #' @export
 

@@ -8,7 +8,8 @@
 #' @import stringr
 #' @return A data.frame with 7 variables with the information available.
 #' @examples
-#' acidente_cnae(cnae=c(20,21,22)) # Extract information from chemical, pharmaceutical and rubber industries.
+#' Extract information from chemical, pharmaceutical and rubber industries.
+#' df<-acidente_cnae(cnae=c(20,21,22)) 
 
 #' @export
 

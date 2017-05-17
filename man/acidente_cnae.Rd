@@ -16,7 +16,8 @@ A data.frame with 7 variables with the information available.
 This function returns
 }
 \examples{
-acidente_cnae(cnae=c(20,21,22)) # Extract information from chemical, pharmaceutical and rubber industries.
+Extract information from chemical, pharmaceutical and rubber industries.
+acidente_cnae(cnae=c(20,21,22)) 
 }
 \keyword{accidents}
 \keyword{labor}
