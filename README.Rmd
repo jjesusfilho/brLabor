@@ -56,11 +56,11 @@ So the CBO number corresponds to variable X8. To find the occupation's descripti
 data(cbo)
 ```
 
-After that, you can replace the numbers with their respective descriptions. There is a function from the miscBR package that does the work for you:
+After that, you can replace the numbers with their respective descriptions. There is a function from the miscBR package that does the work for you. The first argument is column to be replaced, the second one is column from the second data.frame to find matches and the third argument is the replacement that comes from the second data.frame:
 
 
 ```{r example}
-## 
+devtools::install_github("jjesusfilho/miscBR")
 df$X8<-miscBR::subs(df$X8,cbo$cbo,cbo$desc)
 ```
 

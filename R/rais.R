@@ -1,6 +1,6 @@
-#' Funtion rais
+#' Function rais
 #'
-#' This function returns microdata about Brazilian workers
+#' This function returns microdata of Brazilian workers
 #' @param uf vector of Brazilian federation unites (states + federal district)
 #' @param CNAE Brazilian Code of Economic Activity corresponding to ISIC
 #' @param CBO Brazilian Standard Classification of Ocupations
