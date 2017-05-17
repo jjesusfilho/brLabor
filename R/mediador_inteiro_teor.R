@@ -12,7 +12,7 @@
 #' @import stringi
 #' @return A file with the document and/or an R object with the text.
 #' @examples
-#' m<-mediador_inteiro_teor(solicitacao=c("MR087305_2016","MR035244_2009")) 
+#' m<-mediador_inteiro_teor(solicitacao=c("MR087305/2016","MR035244/2009")) 
 #' @export
 
 
