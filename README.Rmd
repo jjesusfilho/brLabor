@@ -27,7 +27,7 @@ devtools::install_github("jjesusfilho/trabalho")
 
 ## Rais data
 
-In order to extract **rais** data,  you use the *rais function*. This function depends on a external sofware, [7-zip](http://www.7-zip.org/).
+In order to extract **rais** data,  you use the *rais function*. This function depends on an external sofware, [7-zip](http://www.7-zip.org/).
 
 You can download the *rais* data from several states and also include more than one CNAE or CBO. As for the year, the function only allows one year at a time. It will download the file in 7-zip format, then decompress it to a txt file, and finally read the data into R in chunks of 1000 lines each time. After that, it will remove the files from the directory. You need at least 9Gb of free space in your HD if you want to extract *rais* from São Paulo.
 
