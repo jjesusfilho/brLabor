@@ -21,7 +21,7 @@ This function downloads the whole texts of the agreements according to "solitaca
 extracted through mediador_meta function
 }
 \examples{
-mediador_inteiro_teor(solicitacao=c("MR087305_2016","MR035244_2009")) 
+m<-mediador_inteiro_teor(solicitacao=c("MR087305/2016","MR035244/2009")) 
 }
 \keyword{agreements.}
 \keyword{labor}

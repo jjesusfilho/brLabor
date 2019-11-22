@@ -1,51 +1,70 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-trabalho
-========
 
-The goal of package "**trabalho**" is to extract data from the Brazilian Ministry of Labor and Social Security. At for this moment you can have access to the Annual National Social Recording (Relação Anual de Trabalhadores - rais), to Colective agreements between workers and companies' unions, as well as labor accidents.
+# brLabor
 
-Installation
-------------
+The goal of package “**brLabor**” is to extract data from the Brazilian
+Ministry of Labor and Social Security. At for this moment you can have
+access to the Annual National Social Recording (Relação Anual de
+Trabalhadores - rais), to Colective agreements between workers and
+companies’ unions, as well as labor accidents.
+
+## Installation
 
 You can install trabalho from github with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("jjesusfilho/trabalho")
+devtools::install_github("jjesusfilho/brLabor")
 ```
 
-Rais data
----------
+## Rais data
 
-In order to extract **rais** data, you use the *rais function*. This function depends on an external sofware, [7-zip](http://www.7-zip.org/).
+In order to extract **rais** data, you use the *rais function*. To use
+this function, you first need to install the [archive
+package](https://github.com/jimhester/archive).
 
-You can download the *rais* data from several states and also include more than one CNAE or CBO. As for the year, the function only allows one year at a time. It will download the file in 7-zip format, then decompress it to a txt file, and finally read the data into R in chunks of 1000 lines each time. After that, it will remove the files from the directory. You need at least 9Gb of free space in your HD if you want to extract *rais* from São Paulo.
+You can download the *rais* data from several states and also include
+more than one CNAE or CBO. As for the year, the function only allows one
+year at a time. It will download the file in 7-zip format, then
+decompress it to a txt file, and finally read the data into R in chunks
+of 1000 lines each time. After that, it will remove the files from the
+directory. You need at least 9Gb of free space in your HD if you want to
+extract the *rais* of São Paulo.
 
-As for the CNAE and CBO, smaller numbers will download more classes. First example, if you want to extract ocupations from high ranks of the tree branches, like judges, mayors and senators, you put CBO="111". The same with the CNAE.
+As for the CNAE and CBO, smaller numbers will download more classes.
+First example, if you want to extract ocupations from high ranks of the
+tree branches, like judges, mayors and senators, you put CBO=“111”. The
+same with the CNAE.
 
-Example.
---------
+## Example.
 
 ``` r
 df<-rais(uf=c("SP","RJ"),CNAE="84","111")
 ```
 
-The description of each variable can be accessed through the following data:
+The description of each variable can be accessed through the following
+data:
 
 ``` r
 
 data(dic)
 ```
 
-So the CBO number corresponds to variable X8. To find the occupation's descriptions, you have to access the CBO data:
+So the CBO number corresponds to variable X8. To find the occupation’s
+descriptions, you have to access the CBO data:
 
 ``` r
 
 data(cbo)
 ```
 
-After that, you can replace the numbers with their respective descriptions. There is a function from the miscBR package that does the work for you. The first argument is the column to be replaced, the second one is the column from the second data.frame to find matches and the third argument is the replacement that comes from the second data.frame:
+After that, you can replace the numbers with their respective
+descriptions. There is a function from the miscBR package that does the
+work for you. The first argument is the column to be replaced, the
+second one is the column from the second data.frame to find matches and
+the third argument is the replacement that comes from the second
+data.frame:
 
 ``` r
 devtools::install_github("jjesusfilho/miscBR")

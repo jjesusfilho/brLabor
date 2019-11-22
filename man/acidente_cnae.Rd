@@ -17,7 +17,7 @@ This function returns
 }
 \examples{
 Extract information from chemical, pharmaceutical and rubber industries.
-acidente_cnae(cnae=c(20,21,22)) 
+df<-acidente_cnae(cnae=c(20,21,22)) 
 }
 \keyword{accidents}
 \keyword{labor}

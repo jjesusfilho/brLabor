@@ -2,7 +2,7 @@
 % Please edit documentation in R/rais.R
 \name{rais}
 \alias{rais}
-\title{Function rais}
+\title{rais}
 \usage{
 rais(uf = NULL, CNAE = "", CBO = "", year = NULL)
 }
@@ -16,13 +16,13 @@ rais(uf = NULL, CNAE = "", CBO = "", year = NULL)
 \item{year}{year of data to download.}
 }
 \value{
-A data.frame with
+A data frame with rais data.
 }
 \description{
 This function returns microdata of Brazilian workers
 }
 \examples{
-rais(uf=c("AC","SC"),CNAE="22",CBO="21",year=2014)
+df<-rais(uf=c("AC","SC"),CNAE="22",CBO="21",year=2014)
 }
 \keyword{employment,}
 \keyword{jobs,}

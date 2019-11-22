@@ -25,41 +25,44 @@ rais<-function(uf=NULL,CNAE="",CBO="",year=NULL){
   urls<-stringr::str_subset(urls,"[^(Estb|ESTB)]")
   fls <- basename(urls)
   fil<-stringr::str_replace(fls,"\\..*",".txt")
-  
+
+
+
   CNAE<-paste0(CNAE,collapse = "|")
   CBO<-paste0(CBO,collapse = "|")
-  
+
   f<-function(x,pos){
     y<-stringr::str_which(str_trim(x$X9),paste0("^",CNAE))
     z<-stringr::str_which(str_trim(x$X8),paste0("^",CBO))
     x[intersect(y,z),]
   }
   c<-data.frame()
-  
+
   for (i in 1:length(fls)){
     file.remove(fls[i])
     file.remove(fil[i])
     download.file(urls[i],destfile = fls[i])
-    system(paste0("7z X ",fls[i]))
-    a<-readr::read_delim_chunked(fil[i],
-                                 col_names=FALSE,
-                                 readr::DataFrameCallback$new(f),
-                          chunk_size = 1000,delim=";")
-    
+    archive::archive_extract(fls[i],fil[i])
+    a <- list.files(fil[i],full.names=TRUE)
+    df<-readr::read_delim_chunked(a,
+                                  col_names=FALSE,
+                                  readr::DataFrameCallback$new(f),
+                                  chunk_size = 1000,delim=";")
+
     if(year<2015){
-      names(a)<-paste0("X",1:45)
+      names(df)<-paste0("X",1:45)
     }
     else{
-      names(a)<-paste0("X",1:57)
+      names(df)<-paste0("X",1:57)
     }
-    
-    if(nrow(a)>0) a$uf<-stringr::str_extract(fls[i],"\\D+")
-    
-    a<-as.data.frame(a,stringsAsFactor=F)
-    c<-rbind(c,a)
+
+    if(nrow(df)>0) df$uf<-stringr::str_extract(fls[i],"\\D+")
+
+    df<-as.data.frame(df,stringsAsFactor=F)
+    c<-rbind(c,df)
     file.remove(fls[i])
     file.remove(fil[i])
   }
-  
+
   return(c)
 }
