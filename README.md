@@ -6,8 +6,9 @@
 The goal of package “**brLabor**” is to extract data from the Brazilian
 Ministry of Labor and Social Security. At for this moment you can have
 access to the Annual National Social Recording (Relação Anual de
-Trabalhadores - rais), to Colective agreements between workers and
-companies’ unions, as well as labor accidents.
+Trabalhadores - rais) (deprecated, see below), to the Colective
+agreements between workers and companies’ unions, as well as labor
+accidents.
 
 ## Installation
 
@@ -20,9 +21,8 @@ devtools::install_github("jjesusfilho/brLabor")
 
 ## Rais data
 
-In order to extract **rais** data, you use the *rais function*. To use
-this function, you first need to install the [archive
-package](https://github.com/jimhester/archive).
+Getting data from RAIS is deprecated. The best way to get this data is
+through [Base dos Dados](https://basedosdados.org/dataset/br-me-rais).
 
 You can download the *rais* data from several states and also include
 more than one CNAE or CBO. As for the year, the function only allows one
@@ -47,7 +47,6 @@ The description of each variable can be accessed through the following
 data:
 
 ``` r
-
 data(dic)
 ```
 
@@ -55,7 +54,6 @@ So the CBO number corresponds to variable X8. To find the occupation’s
 descriptions, you have to access the CBO data:
 
 ``` r
-
 data(cbo)
 ```
 

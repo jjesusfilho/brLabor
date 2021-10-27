@@ -1,10 +1,18 @@
 Package: brLabor
-Version: 0.0.0.9000
 Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Jose",
+           family = "de Jesus Filho",
+           role = c("aut", "cre"),
+           email = "jose@consudata.com.br",
+           comment = c(ORCID = "https://orcid.org/0000-0001-7415-7383"))
 Description: What the package does (one paragraph).
-Authors@R: person("First", "Last", , "first.last@example.com", c("aut", "cre"))
-License: What license it uses
+License: MIT + file LICENSE
 Encoding: UTF-8
+Language: pt_BR
 LazyData: true
-ByteCompile: true
-RoxygenNote: 7.0.0
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports: 
+    curl

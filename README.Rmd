@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
 # brLabor
 
-The goal of package "**brLabor**" is to extract data from the Brazilian Ministry of Labor and Social Security. At for this moment you can have access to the Annual National Social Recording (Relação Anual de Trabalhadores - rais), to Colective agreements between workers and companies' unions, as well as labor accidents.
+The goal of package "**brLabor**" is to extract data from the Brazilian Ministry of Labor and Social Security. At for this moment you can have access to the Annual National Social Recording (Relação Anual de Trabalhadores - rais) (deprecated, see below), to the Colective agreements between workers and companies' unions, as well as labor accidents.
 
 ## Installation
 
@@ -27,7 +27,8 @@ devtools::install_github("jjesusfilho/brLabor")
 
 ## Rais data
 
-In order to extract **rais** data,  you use the *rais function*. To use this function, you first need to install the [archive package](https://github.com/jimhester/archive).
+Getting data from RAIS is deprecated. The best way to get this data is through [Base dos Dados](https://basedosdados.org/dataset/br-me-rais).
+
 
 You can download the *rais* data from several states and also include more than one CNAE or CBO. As for the year, the function only allows one year at a time. It will download the file in 7-zip format, then decompress it to a txt file, and finally read the data into R in chunks of 1000 lines each time. After that, it will remove the files from the directory. You need at least 9Gb of free space in your HD if you want to extract the *rais* of São Paulo.
 
